@@ -47,7 +47,7 @@ function ManageProfile() {
                     <input type="file" accept="image/*" onChange={(e) => uploadFile(e.target.files[0], "photo_url", setUploadingPhoto)} className="w-full border border-black p-2" />
                     {uploadingPhoto && <p className="text-sm mt-1">Uploading...</p>}
                     {formData.photo_url && (
-                        <img src={`http://127.0.0.1:8000${formData.photo_url}`} alt="preview" className="mt-2 h-24 w-24 object-cover rounded-full border border-black" />
+                        <img src={`${import.meta.env.VITE_API_URL || "http://127.0.0.1:8000"}${formData.photo_url}`} alt="preview" className="mt-2 h-24 w-24 object-cover rounded-full border border-black" />
                     )}
                 </div>
 
@@ -56,7 +56,7 @@ function ManageProfile() {
                     <input type="file" accept=".pdf" onChange={(e) => uploadFile(e.target.files[0], "resume_url", setUploadingResume)} className="w-full border border-black p-2" />
                     {uploadingResume && <p className="text-sm mt-1">Uploading...</p>}
                     {formData.resume_url && (
-                        <a href={`http://127.0.0.1:8000${formData.resume_url}`} target="_blank" rel="noreferrer" className="text-sm underline mt-2 inline-block">
+                        <a href={`${import.meta.env.VITE_API_URL || "http://127.0.0.1:8000"}${formData.resume_url}`} target="_blank" rel="noreferrer" className="text-sm underline mt-2 inline-block">
                             View current resume
                         </a>
                     )}

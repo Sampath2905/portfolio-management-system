@@ -89,7 +89,7 @@ function ManageExperience() {
                     <input type="file" accept="image/*" onChange={handleLogoUpload} className="w-full border border-black p-2" />
                     {uploadingLogo && <p className="text-sm mt-1">Uploading...</p>}
                     {formData.company_logo_url && (
-                        <img src={`http://127.0.0.1:8000${formData.company_logo_url}`} alt="logo preview" className="mt-2 h-12 object-contain" />
+                        <img src={`${import.meta.env.VITE_API_URL || "http://127.0.0.1:8000"}${formData.company_logo_url}`} alt="logo preview" className="mt-2 h-12 object-contain" />
                     )}
                 </div>
 
@@ -107,7 +107,7 @@ function ManageExperience() {
                 {items.map((exp) => (
                     <div key={exp.id} className="border border-black p-4 flex justify-between items-center">
                         <div className="flex items-center gap-3">
-                            {exp.company_logo_url && <img src={`http://127.0.0.1:8000${exp.company_logo_url}`} alt="" className="h-8 w-8 object-contain" />}
+                            {exp.company_logo_url && <img src={`${import.meta.env.VITE_API_URL || "http://127.0.0.1:8000"}${exp.company_logo_url}`} alt="" className="h-8 w-8 object-contain" />}
                             <div>
                                 <h3 className="font-bold">{exp.role} — {exp.company}</h3>
                                 <p className="text-sm">{exp.duration} {exp.city && `· ${exp.city}, ${exp.country}`}</p>

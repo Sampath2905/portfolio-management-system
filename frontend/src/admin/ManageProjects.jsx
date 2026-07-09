@@ -104,7 +104,7 @@ function ManageProjects() {
                         <div className="flex flex-wrap gap-3 mt-3">
                             {formData.image_urls.map((url, i) => (
                                 <div key={i} className="relative">
-                                    <img src={`http://127.0.0.1:8000${url}`} alt={`preview-${i}`} className="h-24 w-24 object-cover border border-black" />
+                                    <img src={`${import.meta.env.VITE_API_URL || "http://127.0.0.1:8000"}${url}`} alt={`preview-${i}`} className="h-24 w-24 object-cover border border-black" />
                                     <button
                                         type="button"
                                         onClick={() => removeImage(i)}
@@ -133,7 +133,7 @@ function ManageProjects() {
                     <div key={p.id} className="border border-black p-4 flex justify-between items-center">
                         <div className="flex items-center gap-4">
                             {p.image_urls && p.image_urls[0] && (
-                                <img src={`http://127.0.0.1:8000${p.image_urls[0]}`} alt={p.title} className="h-16 w-16 object-cover border border-black" />
+                                <img src={`${import.meta.env.VITE_API_URL || "http://127.0.0.1:8000"}${p.image_urls[0]}`} alt={p.title} className="h-16 w-16 object-cover border border-black" />
                             )}
                             <div>
                                 <h3 className="font-bold">{p.title}</h3>

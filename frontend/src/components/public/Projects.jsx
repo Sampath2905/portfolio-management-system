@@ -26,7 +26,7 @@ function ProjectImageSlider({ images }) {
     return (
         <div className="relative w-full h-full group/slider">
             <img
-                src={`http://127.0.0.1:8000${images[index]}`}
+                src={`${import.meta.env.VITE_API_URL || "http://127.0.0.1:8000"}${images[index]}`}
                 alt=""
                 className="w-full h-full object-cover transition-all duration-300"
             />

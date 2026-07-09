@@ -98,7 +98,7 @@ function ManageCertifications() {
                     <input type="file" accept="image/*" onChange={handleLogoUpload} className="w-full border border-black p-2" />
                     {uploadingLogo && <p className="text-sm mt-1">Uploading...</p>}
                     {formData.issuer_logo_url && (
-                        <img src={`http://127.0.0.1:8000${formData.issuer_logo_url}`} alt="logo preview" className="mt-2 h-12 object-contain" />
+                        <img src={`${import.meta.env.VITE_API_URL || "http://127.0.0.1:8000"}${formData.issuer_logo_url}`} alt="logo preview" className="mt-2 h-12 object-contain" />
                     )}
                 </div>
 
@@ -108,9 +108,9 @@ function ManageCertifications() {
                     {uploading && <p className="text-sm mt-1">Uploading...</p>}
                     {formData.image_url && (
                         formData.image_url.endsWith(".pdf") ? (
-                            <a href={`http://127.0.0.1:8000${formData.image_url}`} target="_blank" rel="noreferrer" className="mt-2 inline-block underline text-sm">View uploaded PDF</a>
+                            <a href={`${import.meta.env.VITE_API_URL || "http://127.0.0.1:8000"}${formData.image_url}`} target="_blank" rel="noreferrer" className="mt-2 inline-block underline text-sm">View uploaded PDF</a>
                         ) : (
-                            <img src={`http://127.0.0.1:8000${formData.image_url}`} alt="preview" className="mt-2 h-24 object-cover" />
+                            <img src={`${import.meta.env.VITE_API_URL || "http://127.0.0.1:8000"}${formData.image_url}`} alt="preview" className="mt-2 h-24 object-cover" />
                         )
                     )}
                 </div>
@@ -129,7 +129,7 @@ function ManageCertifications() {
                 {items.map((c) => (
                     <div key={c.id} className="border border-black p-4 flex justify-between items-center">
                         <div className="flex items-center gap-3">
-                            {c.issuer_logo_url && <img src={`http://127.0.0.1:8000${c.issuer_logo_url}`} alt="" className="h-8 w-8 object-contain" />}
+                            {c.issuer_logo_url && <img src={`${import.meta.env.VITE_API_URL || "http://127.0.0.1:8000"}${c.issuer_logo_url}`} alt="" className="h-8 w-8 object-contain" />}
                             <div>
                                 <h3 className="font-bold">{c.title}</h3>
                                 <p className="text-sm">{c.issuer} — {c.date}</p>
