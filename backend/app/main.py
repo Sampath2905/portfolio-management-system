@@ -8,7 +8,7 @@ app = FastAPI(title="Portfolio Backend API")
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["https://sampath-naik-portfolio.com", "https://www.sampath-naik-portfolio.com"],
+    allow_origins=["https://sampath-naik-portfolio.vercel.app"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
