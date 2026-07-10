@@ -20,7 +20,7 @@ function Skills() {
     }, []);
 
     return (
-        <section id="about" className="relative bg-white px-8 md:px-16 py-24 border-b border-black overflow-hidden">
+        <section id="about" className="relative bg-white dark:bg-gray-900 dark:text-white px-8 md:px-16 py-24 border-b border-black dark:border-white/10 overflow-hidden">
             {/* subtle dotted background texture */}
             <div
                 className="absolute inset-0 opacity-[0.35] pointer-events-none"

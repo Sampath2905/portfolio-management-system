@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import api from "../../services/api";
+import ThemeToggle from "./ThemeToggle";
 
 function Navbar() {
     const [profile, setProfile] = useState(null);
@@ -19,7 +20,8 @@ function Navbar() {
                 <li><a href="#experience" className="hover:text-accent transition">Experience</a></li>
                 <li><a href="#contact" className="hover:text-accent transition">Contact</a></li>
             </ul>
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-4 text-white">
+                <ThemeToggle />
                 {profile?.resume_url && (
                     <a href={`${import.meta.env.VITE_API_URL || "http://127.0.0.1:8000"}${profile.resume_url}`} target="_blank" rel="noreferrer" className="hidden md:block font-mono text-xs tracking-wide text-gray-400 hover:text-accent transition">
                         Resume ↓
