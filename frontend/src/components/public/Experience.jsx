@@ -29,7 +29,7 @@ function Experience() {
                         <div className="flex items-start gap-4">
                             {exp.company_logo_url ? (
                                 <img
-                                    src={`${import.meta.env.VITE_API_URL || "http://127.0.0.1:8000"}${exp.company_logo_url}`}
+                                    src={exp.company_logo_url}
                                     alt=""
                                     className="w-10 h-10 object-contain flex-shrink-0 bg-white p-1 border border-amber-200 dark:border-white/10 rounded"
                                 />

@@ -49,7 +49,7 @@ function Certifications() {
                             >
                                 {item.issuer_logo_url ? (
                                     <img
-                                        src={`${import.meta.env.VITE_API_URL || "http://127.0.0.1:8000"}${item.issuer_logo_url}`}
+                                        src={item.issuer_logo_url}
                                         alt=""
                                         className="w-10 h-10 object-contain flex-shrink-0"
                                     />

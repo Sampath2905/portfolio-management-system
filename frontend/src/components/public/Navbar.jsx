@@ -23,7 +23,7 @@ function Navbar() {
             <div className="flex items-center gap-4 text-white">
                 <ThemeToggle />
                 {profile?.resume_url && (
-                    <a href={`${import.meta.env.VITE_API_URL || "http://127.0.0.1:8000"}${profile.resume_url}`} target="_blank" rel="noreferrer" className="hidden md:block font-mono text-xs tracking-wide text-gray-400 hover:text-accent transition">
+                    <a href={profile.resume_url} target="_blank" rel="noreferrer" className="hidden md:block font-mono text-xs tracking-wide text-gray-400 hover:text-accent transition">
                         Resume ↓
                     </a>
                 )}

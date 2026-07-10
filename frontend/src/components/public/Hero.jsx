@@ -22,7 +22,7 @@ function Hero() {
             >
                 {profile?.photo_url && (
                     <img
-                        src={`${import.meta.env.VITE_API_URL || "http://127.0.0.1:8000"}${profile.photo_url}`}
+                        src={profile.photo_url}
                         alt="Sampath"
                         className="w-full h-full object-cover"
                     />
