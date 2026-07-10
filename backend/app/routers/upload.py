@@ -18,8 +18,11 @@ def upload_file(
     file: UploadFile = File(...),
     current_admin: str = Depends(get_current_admin)
 ):
+    ext = file.filename.split(".")[-1].lower()
+    resource_type = "raw" if ext in ["pdf", "doc", "docx", "zip"] else "auto"
+
     result = cloudinary.uploader.upload(
         file.file,
-        resource_type="auto",
+        resource_type=resource_type,
     )
     return {"file_url": result["secure_url"]}
