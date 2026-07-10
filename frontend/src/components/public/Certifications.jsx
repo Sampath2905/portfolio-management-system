@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import api from "../../services/api";
+import { useTheme } from "../../context/ThemeContext";
 
 const cardStyles = [
     { border: "border-t-accent", glow: "hover:shadow-accent/20", tag: "bg-accent/10 text-emerald-700 dark:text-emerald-300" },
@@ -12,18 +13,22 @@ const cardStyles = [
 
 function Certifications() {
     const [items, setItems] = useState([]);
+    const { theme } = useTheme();
 
     useEffect(() => {
         api.get("/certifications/").then((res) => setItems(res.data));
     }, []);
 
+    const gradientStyle =
+        theme === "dark"
+            ? { backgroundImage: "linear-gradient(120deg, #111827, #1f2937, #111827, #1a202c)" }
+            : { backgroundImage: "linear-gradient(120deg, #ffffff, #f7f7fa, #fafafa, #f5f5f7)" };
+
     return (
         <section
             id="certifications"
-            className="relative px-8 md:px-16 py-24 border-b border-black dark:border-white/10 overflow-hidden animate-gradient dark:!bg-gray-900"
-            style={{
-                backgroundImage: "linear-gradient(120deg, #ffffff, #f7f7fa, #fafafa, #f5f5f7)",
-            }}
+            className="relative px-8 md:px-16 py-24 border-b border-black dark:border-white/10 overflow-hidden animate-gradient"
+            style={gradientStyle}
         >
             <div className="relative">
                 <div className="font-mono text-xs text-gray-500 dark:text-gray-400 uppercase tracking-widest mb-4">// Credentials</div>
