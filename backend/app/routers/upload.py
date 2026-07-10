@@ -25,4 +25,12 @@ def upload_file(
         file.file,
         resource_type=resource_type,
     )
-    return {"file_url": result["secure_url"]}
+
+    file_url = result["secure_url"]
+
+    # Cloudinary's raw resource URLs don't include the extension by default,
+    # which causes browsers to download instead of preview. Append it manually.
+    if resource_type == "raw" and not file_url.endswith(f".{ext}"):
+        file_url = f"{file_url}.{ext}"
+
+    return {"file_url": file_url}
